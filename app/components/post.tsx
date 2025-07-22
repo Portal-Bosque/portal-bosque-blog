@@ -19,7 +19,7 @@ export type PostFragment = fragmentOn.infer<typeof PostFragment>
 export function Post({ _title, author, date, coverImage, body, _id }: PostFragment) {
   return (
     <article>
-      <h1 className="mt-8 mb-8 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl font-serif">
+      <h1 className="mt-8 mb-8 text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl font-serif">
         {_title}
       </h1>
 
