@@ -6,6 +6,8 @@ import { Post, PostFragment } from "@/app/components/post"
 import { MoreStories } from "@/app/components/more-stories"
 import { PostMetaFragment } from "@/app/components/hero-post"
 import { PostViewTracker } from "@/app/components/post-view-tracker"
+import { ThemeToggle } from "@/app/components/theme-toggle"
+import { Header } from "@/app/components/header"
 
 export const dynamic = "force-static"
 export const revalidate = 30
@@ -99,16 +101,14 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <main>
+      <Header />
       <PostViewTracker postId={post._id} />
-      <section className="container mx-auto px-5">
-        <h2 className="mt-16 mb-16 md:mb-12 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-          <Link href="/" className="hover:underline font-serif">
-            Portal Bosque <em>Lab</em>
-          </Link>
-        </h2>
+      <section className="container mx-auto px-0 sm:px-5">
         <Post {...post} />
         <hr className="mt-28 mb-24" />
-        <MoreStories morePosts={morePostsData.blog.posts.items} title={postData.blog.morePosts} />
+        <div className="mx-4 sm:mx-0">
+          <MoreStories morePosts={morePostsData.blog.posts.items} title="Más Posteos" />
+        </div>
       </section>
     </main>
   )

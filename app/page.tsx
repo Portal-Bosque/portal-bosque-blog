@@ -1,10 +1,12 @@
 import { basehub } from "basehub"
 import { Intro } from "./components/intro"
+import { Header } from "./components/header"
 import { PostMetaFragment } from "./components/hero-post"
 import { Newsletter } from "./components/newsletter"
 import type { Metadata } from "next"
 import { ThemeToggle } from "./components/theme-toggle"
 import { PostPreview } from "./components/post-preview-enhanced"
+import Link from "next/link"
 
 export const dynamic = "force-static"
 export const revalidate = 30
@@ -66,18 +68,7 @@ export default async function Page() {
 
   return (
     <main>
-      {/* Header for mobile */}
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/80 p-4 backdrop-blur-sm sm:hidden">
-        <h1 className="text-2xl font-bold tracking-tighter font-serif">
-          Portal Bosque <em>Lab</em>
-        </h1>
-        <ThemeToggle />
-      </header>
-
-      {/* Desktop Intro */}
-      <div className="container mx-auto hidden px-5 sm:block">
-        <Intro />
-      </div>
+      <Header />
 
       <div className="container mx-auto px-0 sm:px-5">
         <div className="flex flex-col items-center">

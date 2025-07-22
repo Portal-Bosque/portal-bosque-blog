@@ -19,7 +19,7 @@ export type PostFragment = fragmentOn.infer<typeof PostFragment>
 export function Post({ _title, author, date, coverImage, body, _id }: PostFragment) {
   return (
     <article>
-      <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl font-serif">
+      <h1 className="mt-8 mb-8 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl font-serif">
         {_title}
       </h1>
 
@@ -37,12 +37,15 @@ export function Post({ _title, author, date, coverImage, body, _id }: PostFragme
       </div>
 
       <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage title={_title} url={coverImage.url} width={1500} height={1000} priority />
+        <CoverImage title={_title} url={coverImage.url} width={1500} height={1000} priority className="w-full aspect-square object-cover" />
       </div>
 
-      <div className="mx-auto max-w-2xl">
-        <div className="mb-6 block md:hidden">{author && <Avatar title={author._title} url={author.avatar.url} />}</div>
-        <div className="mb-12 flex items-center justify-between block md:hidden">
+      {/* Bloques de autor, fecha, like y vistas en mobile con márgenes y separación */}
+      <div className="mx-4 max-w-2xl">
+        <div className="mb-4 block md:hidden">
+          {author && <Avatar title={author._title} url={author.avatar.url} />}
+        </div>
+        <div className="mb-8 flex items-center justify-between block md:hidden">
           <div className="text-base dark:text-white/60 text-black/60">
             <Date dateString={date} />
           </div>
@@ -53,13 +56,13 @@ export function Post({ _title, author, date, coverImage, body, _id }: PostFragme
         </div>
       </div>
 
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-4 max-w-2xl sm:mx-auto">
         <div className="prose dark:prose-invert hover:prose-a:text-orange-500">
           <RichText
             components={{
-              img: (props) => <BodyImage {...props} />,
-              pre: ({ code, language }) => <CodeBlock theme="github-dark-default" snippets={[{ code, language }]} />,
-              li: (props) => <li {...props} className="[&>p]:my-0" />,
+              img: (props) => <BodyImage {...props} className="w-full aspect-square object-cover" />, 
+              pre: ({ code, language }) => <CodeBlock theme="github-dark-default" snippets={[{ code, language }]} />, 
+              li: (props) => <li {...props} className="[&>p]:my-0" />, 
             }}
           >
             {body.json.content}
