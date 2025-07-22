@@ -36,7 +36,7 @@ export function Newsletter({ newsletter }: NewsletterProps) {
 
       setMessage({
         type: "success",
-        text: "Thanks for subscribing! You'll receive our latest updates.",
+        text: "¡Gracias por suscribirte! Vas a recibir nuestras novedades.",
       })
 
       // Reset form
@@ -46,7 +46,7 @@ export function Newsletter({ newsletter }: NewsletterProps) {
       console.error("Newsletter submission error:", error)
       setMessage({
         type: "error",
-        text: "Something went wrong. Please try again later.",
+        text: "Ocurrió un error. Por favor intentá más tarde.",
       })
     } finally {
       setIsSubmitting(false)
@@ -58,11 +58,10 @@ export function Newsletter({ newsletter }: NewsletterProps) {
       <div className="container mx-auto px-5">
         <div className="py-16 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tighter leading-tight mb-4">
-            Stay Updated
+            Recibí novedades
           </h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter to get the latest posts delivered
-            straight to your inbox.
+            Suscribite para recibir las últimas novedades y artículos en tu correo.
           </p>
 
           <form action={handleSubmit} className="max-w-md mx-auto space-y-4">
@@ -74,14 +73,14 @@ export function Newsletter({ newsletter }: NewsletterProps) {
                       {...field}
                       className="flex-1"
                       disabled={isSubmitting}
-                      placeholder={field.placeholder || "Enter your email"}
+                      placeholder={field.placeholder || "Ingresá tu email"}
                     />
                     <Button
                       type="submit"
                       disabled={isSubmitting}
                       className="px-6"
                     >
-                      {isSubmitting ? "Subscribing..." : "Subscribe"}
+                      {isSubmitting ? "Suscribiendo..." : "Suscribirme"}
                     </Button>
                   </div>
                 ) : (

@@ -70,6 +70,9 @@ export default async function Page() {
     <main>
       <Header />
 
+      {/* Separación entre header y lista de posts solo en desktop */}
+      <div className="sm:pt-8" />
+
       <div className="container mx-auto px-0 sm:px-5">
         <div className="flex flex-col items-center">
           {data.blog.posts.items.map((post) => (
